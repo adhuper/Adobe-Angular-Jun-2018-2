@@ -1,0 +1,12 @@
+<h3>Calculator-1</h3>
+<hr>
+<label for="">Number 1 :</label>
+<input type="number" (change)="n1=$event.target.valueAsNumber">
+<label for="">Number 2 :</label>
+<input type="number" (change)="n2=$event.target.valueAsNumber">
+<br>
+<input type="button" value="Add" (click)="result=model.add(n1,n2)">
+<input type="button" value="Subtract" (click)="result=model.subtract(n1,n2)">
+<input type="button" value="Multiply" (click)="result=model.multiply(n1,n2)">
+<input type="button" value="Divide" (click)="result=model.divide(n1,n2)">
+<div>{{result}}</div>
