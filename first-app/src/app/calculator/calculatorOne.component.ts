@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {CalculatorModel } from './CalculatorModel';
+import {CalculatorModel } from './calculatorModel';
 
 
 @Component({

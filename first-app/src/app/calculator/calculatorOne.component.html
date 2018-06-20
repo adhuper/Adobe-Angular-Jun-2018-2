@@ -9,4 +9,4 @@
 <input type="button" value="Subtract" (click)="result=model.subtract(n1,n2)">
 <input type="button" value="Multiply" (click)="result=model.multiply(n1,n2)">
 <input type="button" value="Divide" (click)="result=model.divide(n1,n2)">
-<div>{{result}}</div>
+<app-calculator-result [data]="result"></app-calculator-result>

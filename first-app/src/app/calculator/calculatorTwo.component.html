@@ -1,0 +1,14 @@
+<h3>Calculator-2</h3>
+<hr>
+<label for="">Number 1 :</label>
+<input type="number" (change)="n1 = $event.target.valueAsNumber">
+<select (change)="operator = $event.target.value">
+	<option value="add">Add</option>
+	<option value="subtract">Subtract</option>
+	<option value="multiply">Multiply</option>
+	<option value="divide">Divide</option>
+</select>
+<label for="">Number 2 :</label>
+<input type="number" (change)="n2 = $event.target.valueAsNumber">
+<input type="button" value="Calculate" (click)="onCalculateClick()">
+<app-calculator-result [data]="result"></app-calculator-result>
