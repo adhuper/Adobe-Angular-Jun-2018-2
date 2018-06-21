@@ -10,8 +10,12 @@ import { BugOperationsService } from './services/bugOperations.service';
 })
 export class BugTrackerComponent{
 
+
 	bugs : Bug[] = [];
 
+	sortAttr : string = 'name';
+	sortDesc : boolean = false;
+	
 	constructor(private bugOperations : BugOperationsService){
 		this.bugs.push(this.bugOperations.createNew('Server communication failure'));
 		this.bugs.push(this.bugOperations.createNew('User actions not recognized'));

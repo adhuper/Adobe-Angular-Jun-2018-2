@@ -16,9 +16,16 @@ export class SortPipe implements PipeTransform{
 	        return 0;
 	    }
 	}
-	transform(data : any[], attrName : string) : any[] {
+	private getDescending(comparer : Comparer) : Comparer{
+		return function(p1:any, p2:any) : number {
+	        return comparer(p1, p2) * -1;
+	    }
+	}
+	transform(data : any[], attrName : string, desc : boolean = false) : any[] {
 		if (!attrName || !data || !data.length) return data;
 		let comparer = this.getComparer(attrName);
+		if (desc)
+			comparer = this.getDescending(comparer);
 		return data.sort(comparer);
 	}
 }
