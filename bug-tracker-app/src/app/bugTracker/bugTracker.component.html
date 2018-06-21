@@ -1,8 +1,5 @@
-<section class="stats">
-	<span class="closed">{{getClosedCount()}}</span>
-	<span> / </span>
-	<span>{{bugs.length}}</span>
-</section>
+<input type="checkbox" (change)="true" />
+<app-bug-stats [data]="bugs"></app-bug-stats>
 <section class="sort">
 	<label for="">Order By :</label>
 	<select (change)="sortAttr = $event.target.value">

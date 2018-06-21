@@ -15,7 +15,7 @@ export class BugTrackerComponent{
 
 	sortAttr : string = 'name';
 	sortDesc : boolean = false;
-	
+
 	constructor(private bugOperations : BugOperationsService){
 		this.bugs.push(this.bugOperations.createNew('Server communication failure'));
 		this.bugs.push(this.bugOperations.createNew('User actions not recognized'));
@@ -25,18 +25,18 @@ export class BugTrackerComponent{
 
 	onAddNewClick(bugName){
 		let newBug : Bug = this.bugOperations.createNew(bugName);
-		this.bugs.push(newBug);
+		//this.bugs.push(newBug);
+		this.bugs = [...this.bugs, newBug];
 	}
 
-	onBugNameClick(bug){
-		this.bugOperations.toggle(bug);
+	onBugNameClick(bugToToggle){
+		let toggledBug = this.bugOperations.toggle(bugToToggle);
+		this.bugs = this.bugs.map(bug => bug === bugToToggle ? toggledBug : bug);
 	}
 
 	onRemoveClosedClick(){
 		this.bugs = this.bugs.filter(bug => !bug.isClosed);
 	}
 
-	getClosedCount(){
-		return this.bugs.reduce((result, bug) => bug.isClosed ? ++result : result , 0);
-	}
+	
 }
