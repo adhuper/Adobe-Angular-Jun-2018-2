@@ -32,6 +32,10 @@ export class BugTrackerComponent{
 	}
 
 	onRemoveClosedClick(){
+		this.bugs
+			.filter(bug => bug.isClosed)
+			.forEach(closedBug => this.bugOperations.remove(closedBug));
+
 		this.bugs = this.bugs.filter(bug => !bug.isClosed);
 	}
 
