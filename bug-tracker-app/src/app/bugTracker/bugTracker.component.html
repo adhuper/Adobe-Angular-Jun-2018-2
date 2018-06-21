@@ -19,7 +19,7 @@
 </section>
 <section class="list">
 	<ol>
-		<li *ngFor="let bug of bugs">
+		<li *ngFor="let bug of ( bugs | sort:'name' )">
 			<span class="bugname"
 				(click)="onBugNameClick(bug)"
 				[ngClass]="{closed : bug.isClosed}"
