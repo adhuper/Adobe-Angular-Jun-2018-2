@@ -17,15 +17,7 @@ export class BugTrackerComponent{
 	sortDesc : boolean = false;
 
 	constructor(private bugOperations : BugOperationsService){
-		
-	}
-
-	ngOnInit(){
-		this.bugOperations
-			.getAll()
-			.then(bugs => {
-				this.bugs = bugs;
-			});
+		this.bugs = this.bugOperations.getAll();	
 	}
 
 	onNewBugCreated(newBug){
@@ -33,9 +25,8 @@ export class BugTrackerComponent{
 	}
 
 	onBugNameClick(bugToToggle){
-		this.bugOperations
-			.toggle(bugToToggle)
-			.then(toggledBug => this.bugs = this.bugs.map(bug => bug === bugToToggle ? toggledBug : bug));
+		let toggledBug = this.bugOperations.toggle(bugToToggle);
+		this.bugs = this.bugs.map(bug => bug === bugToToggle ? toggledBug : bug);
 	}
 
 	onRemoveClosedClick(){
