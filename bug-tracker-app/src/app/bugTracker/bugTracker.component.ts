@@ -20,9 +20,7 @@ export class BugTrackerComponent{
 		this.bugs = this.bugOperations.getAll();	
 	}
 
-	onAddNewClick(bugName){
-		let newBug : Bug = this.bugOperations.createNew(bugName);
-		//this.bugs.push(newBug);
+	onNewBugCreated(newBug){
 		this.bugs = [...this.bugs, newBug];
 	}
 
@@ -32,6 +30,10 @@ export class BugTrackerComponent{
 	}
 
 	onRemoveClosedClick(){
+		this.bugs
+			.filter(bug => bug.isClosed)
+			.forEach(closedBug => this.bugOperations.remove(closedBug));
+
 		this.bugs = this.bugs.filter(bug => !bug.isClosed);
 	}
 
