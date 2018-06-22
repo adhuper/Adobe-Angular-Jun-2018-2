@@ -21,12 +21,11 @@ export class BugEditComponent{
 		
 	}
 	
-	onAddNewClick(bugName){
+	async onAddNewClick(bugName){
 		/*this.bugOperations
 			.createNew(bugName)
 			.then(newBug => this.bugCreated.emit(newBug));*/
-		this.bugOperations
-			.createNew(bugName)
-			.subscribe(newBug => this.bugCreated.emit(newBug));
+		let newBug = await this.bugOperations.createNew(bugName);
+		this.bugCreated.emit(newBug);
 	}
 }
