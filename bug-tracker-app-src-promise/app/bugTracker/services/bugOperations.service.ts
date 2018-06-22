@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Bug } from '../models/Bug';
 import { BugServerService } from './bugServer.service';
-import { Observable } from 'rxjs';
 
 @Injectable()
 export class BugOperationsService{
@@ -9,10 +8,10 @@ export class BugOperationsService{
 	constructor(private bugServer : BugServerService){
 
 	}
-	getAll() : Observable<Bug[]>{
+	getAll() : Promise<Bug[]>{
 		return this.bugServer.getAll();
 	}
-	createNew(bugName : string) : Observable<Bug> {
+	createNew(bugName : string) : Promise<Bug> {
 		let newBug : Bug = {
 			id : 0,
 			name : bugName,
@@ -22,14 +21,12 @@ export class BugOperationsService{
 		return this.bugServer.save(newBug);
 	}
 
-	toggle(bugToToggle : Bug) : Observable<Bug> {
+	toggle(bugToToggle : Bug) : Promise<Bug> {
 		//bugToToggle.isClosed = !bugToToggle.isClosed;
 		let toggledBug = { ...bugToToggle, isClosed : !bugToToggle.isClosed};
 		return this.bugServer.save(toggledBug);
 	}
 	remove(bug : Bug){
-		this.bugServer
-			.remove(bug)
-			.subscribe(_ => {});
+		this.bugServer.remove(bug);
 	}
 }
