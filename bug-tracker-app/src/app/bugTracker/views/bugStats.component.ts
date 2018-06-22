@@ -1,9 +1,10 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core'
-import { Bug } from '../models/Bug';
+import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
+import {Bug} from '../models/Bug';
 
 @Component({
 	selector : 'app-bug-stats',
 	template : `
+		<div>{{getCurrentTime()}}</div>
 		<section class="stats">
 			<span class="closed">{{bugs | closedCount}}</span>
 			<span> / </span>
@@ -11,11 +12,14 @@ import { Bug } from '../models/Bug';
 		</section>
 	`,
 	changeDetection : ChangeDetectionStrategy.OnPush
-
 })
 export class BugStatsComponent{
 
 	@Input('data')
 	bugs : Bug[] = [];
+
+	getCurrentTime(){
+		return Date();
+	}
 
 }

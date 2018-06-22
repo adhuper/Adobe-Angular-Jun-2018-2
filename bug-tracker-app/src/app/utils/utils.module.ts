@@ -5,17 +5,17 @@ import { SortPipe } from './pipes/sort.pipe';
 import { ElapsedPipe } from './pipes/elapsed.pipe';
 
 @NgModule({
-	declarations:[
+	declarations : [
 		TrimTextPipe,
-	    SortPipe,
-	    ElapsedPipe
+		SortPipe,
+		ElapsedPipe
 	],
-	imports : [],
 	providers : [],
+	imports : [],
 	exports : [
 		TrimTextPipe,
-	    SortPipe,
-	    ElapsedPipe
+		SortPipe,
+		ElapsedPipe
 	]
 })
 export class UtilsModule{
