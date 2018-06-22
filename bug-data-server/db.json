@@ -11,6 +11,12 @@
       "name": "Application is not responding",
       "isClosed": false,
       "createdAt": "2018-06-22T05:37:37.656Z"
+    },
+    {
+      "id": 3,
+      "name": "Data integrity checks failed",
+      "isClosed": true,
+      "createdAt": "2018-06-22T09:20:27.864Z"
     }
   ],
   "projects": [
